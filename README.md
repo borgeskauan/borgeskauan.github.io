@@ -14,3 +14,7 @@ The former `/versions/32` URLs redirect to these pages. There are no historical 
 `npm start` runs the development server. `npm run build` generates the static site in `build/`. `npm run verify` checks payment behavior, translations, reports, and generated pages.
 
 Project media and original test reports are in `public/`. Both pages share `layout/top-bar.component.ts` and the palette, typography, width, and spacing tokens in `src/theme.css`. Route-specific content remains independent.
+
+## Publishing
+
+Pushes to `main` run `.github/workflows/pages.yml`, which builds the site, runs `npm run verify`, and deploys `build/` to GitHub Pages. The workflow can also be started manually from GitHub Actions. The repository's Pages publishing source must be set to **GitHub Actions**.
