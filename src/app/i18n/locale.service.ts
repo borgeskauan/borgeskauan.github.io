@@ -30,7 +30,7 @@ export class LocaleService {
     if(this.enabled()){
       const isCase=url.includes('/projects/pix');
       const description=isCase
-        ? 'Instant Payment System: interface, architecture, an interactive payment example, implementation notes and measured results.'
+        ? 'Instant Payment System: a personal project coordinating payments between simulated banks, the decisions behind it, and results from local tests.'
         : 'Kauan Borges — software developer in São Paulo, currently at Bradesco. Selected personal projects, interfaces and engineering notes.';
       this.meta.updateTag({name:'description',content:this.translate(description)});
     }
