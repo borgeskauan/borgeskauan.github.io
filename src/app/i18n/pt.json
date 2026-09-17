@@ -1,5 +1,10 @@
 {
   "Projects": "Projetos",
+  "Version": "Versão",
+  "Built": "Gerada em",
+  "Includes unpublished changes": "Inclui alterações ainda não publicadas",
+  "View commit": "Ver commit",
+  "Reload page": "Recarregar página",
   "Selected personal projects": "Projetos pessoais",
   "Software developer": "Software developer",
   "Based in São Paulo. Currently at Bradesco, working on backend services and web interfaces.": "Moro em São Paulo. Atualmente trabalho no Bradesco, desenvolvendo serviços de backend e interfaces web.",

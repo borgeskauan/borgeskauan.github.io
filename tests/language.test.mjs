@@ -31,7 +31,7 @@ test('all payment explanations, system components and engineering decisions have
   }
 });
 test('static translated template text has a complete dictionary',()=>{
-  const files=['layout/top-bar.component.ts','layout/portfolio-shell.component.ts','home/home.component.ts','home/project-media.component.ts','projects/pix/pix.component.html','projects/pix/payment-example.component.html','projects/pix/system-map.component.ts','projects/pix/test-results.component.ts'];
+  const files=['layout/top-bar.component.ts','layout/build-version.component.ts','layout/portfolio-shell.component.ts','home/home.component.ts','home/project-media.component.ts','projects/pix/pix.component.html','projects/pix/payment-example.component.html','projects/pix/system-map.component.ts','projects/pix/test-results.component.ts'];
   for(const file of files){
     const source=fs.readFileSync(new URL('../src/app/'+file,import.meta.url),'utf8');
     for(const m of source.matchAll(/{{["']([^"'\n]+)["'] \| t}}/g))assert.ok(pt[m[1]],'Missing: '+m[1]);

@@ -1,4 +1,5 @@
 import {TopBarComponent} from './top-bar.component';
+import {BuildVersionComponent} from './build-version.component';
 import {TranslatePipe} from '../i18n/locale.service';
 import {Component,inject,signal} from '@angular/core';
 import {PlatformLocation} from '@angular/common';
@@ -7,7 +8,7 @@ import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {isCasePath} from '../content/navigation';
 const portraitAsset='/assets/portrait/kauan-borges.jpg';
 
-@Component({selector:'app-portfolio-shell',imports:[TranslatePipe,RouterOutlet,TopBarComponent],template:`
+@Component({selector:'app-portfolio-shell',imports:[TranslatePipe,RouterOutlet,TopBarComponent,BuildVersionComponent],template:`
 <div class="structured-portrait" [class]="'d-frame identity-shell identity-split b-ocean' + (viewingCase() ? ' b-case identity-case' : ' identity-home')">
   <div class="identity-layout">
 
@@ -23,6 +24,7 @@ const portraitAsset='/assets/portrait/kauan-borges.jpg';
     <div class="identity-content"><router-outlet /></div>
 
   </div>
+  <app-build-version />
 </div>`})
 export class PortfolioShellComponent {
   readonly portrait=portraitAsset;

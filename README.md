@@ -18,3 +18,5 @@ Project media and original test reports are in `public/`. Both pages share `layo
 ## Publishing
 
 Pushes to `main` run `.github/workflows/pages.yml`, which builds the site, runs `npm run verify`, and deploys `build/` to GitHub Pages. The workflow can also be started manually from GitHub Actions. The repository's Pages publishing source must be set to **GitHub Actions**.
+
+The **Version** toggle at the bottom of both pages shows the loaded build's short commit ID and build time in UTC. `npm run build` and `npm start` generate this metadata automatically; local builds with tracked, uncommitted changes add `-local`. The ID is embedded in the application, so an older open tab continues to identify its own build until reloaded.
