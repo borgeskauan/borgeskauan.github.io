@@ -6,7 +6,7 @@ export const decisions: readonly Decision[] = [
     tradeoff: 'Identity alone is insufficient. Normalization rules become part of the protocol, so the fingerprint is versioned. A repeat does not create another audit fact or rebuild a notification.',
     sourceUrl: `${repo}/blob/master/docs/topics/payment-correctness.md`},
   {explanation: 'Payment state, balance changes, the audit fact and the obligation to notify commit together. Admission reserves the payer’s money. Acceptance credits the receiver; rejection releases the reservation.',
-    tradeoff: 'Stable lock ordering and batching control contention, but operations touching the same balance still coordinate. A waiting payment has no automatic timeout in this project.',
+    tradeoff: 'Stable lock ordering and batching control contention, but operations touching the same balance still coordinate.',
     sourceUrl: `${repo}/blob/master/docs/topics/payment-correctness.md`},
   {explanation: 'The committed outbox keeps the result available for publication. Banks read notifications through gRPC with an opaque cursor, and can reconnect within the retained history.',
     tradeoff: 'Delivery is at least once. Readers still handle duplicates and keep their cursor. Replaying an instruction does not manufacture a fresh confirmation; the original notification and recovery path remain authoritative.',

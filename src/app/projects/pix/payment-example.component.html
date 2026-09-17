@@ -7,6 +7,9 @@
   @case(2){ {{"I save the payment result so the bank can recover a missing confirmation without repeating the transfer." | t}} }
 }
 </p>
+@if(mode()===0){
+<p class="principle-tradeoff">{{"In this project, a pending payment does not expire automatically. If the receiving bank does not respond, the money stays reserved." | t}}</p>
+}
 <div class="stage-heading"><span>{{"Example payment" | t}} · R$100</span><span>{{step()+1}} / 4</span></div>
 <div class="principle-scene" [class.s1]="step()===1" [class.s2]="step()===2" [class.s3]="step()===3" [class.declined]="declined()">
 @if(mode()===0){
