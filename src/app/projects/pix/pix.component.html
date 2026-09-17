@@ -1,121 +1,54 @@
-<article class="pix-visual">
+<article class="pix-case">
   <a class="d-back" routerLink="/">{{"Projects" | t}}</a>
+
   <header class="pix-intro">
     <p class="d-kicker">{{"Personal project · Completed" | t}}</p>
     <h1>Instant Payment System</h1>
-    <p class="pix-lead">{{"I designed, built and tested a system that coordinates payments between simulated banks. It moves the agreed amount and tells the sending bank whether the payment completed or was declined." | t}}</p>
-    <div class="pix-intro-links">
-      <a href="https://github.com/borgeskauan/instant-payment-system" target="_blank" rel="noopener noreferrer">{{"Repository" | t}} <span aria-hidden="true">↗</span></a>
-      <a href="https://github.com/borgeskauan/instant-payment-system/tree/master/demo" target="_blank" rel="noopener noreferrer">{{"Demo & setup" | t}} <span aria-hidden="true">↗</span></a>
-    </div>
-    <div class="pix-goal">
-      <h2>{{"What I wanted to find out" | t}}</h2>
-      <p>{{"Inspired by Pix, I wanted to handle at least 2,000 new payments per second, return 99% of answers within one second, and check that the results stayed correct. The whole system had to run on my local computer." | t}}</p>
-    </div>
+    <p class="pix-lead">{{"I built a payment system inspired by Pix to handle thousands of payments every second while keeping the results correct and the banks informed." | t}}</p>
+    <p class="pix-role">{{"I was responsible for its design, implementation and testing. The project uses simulated banks and runs on a single computer." | t}}</p>
   </header>
 
-  <section class="pix-journey-section" aria-labelledby="journey-heading">
-    <div class="pix-section-heading">
-      <h2 id="journey-heading">{{"A payment through the system" | t}}</h2>
-      <p>{{"One bank wants to transfer R$100 to another. My system coordinates what happens between them." | t}}</p>
-    </div>
-    <figure class="pix-journey">
-      <div class="pix-participants">
-        <div class="pix-bank">
-          <span class="pix-flow-label">{{"Sending bank" | t}}</span>
-          <strong>{{"Send R$100" | t}}</strong>
-          <p>{{"Asks to make the payment." | t}}</p>
-        </div>
-        <span class="pix-journey-arrow" aria-hidden="true">→</span>
-        <div class="pix-core">
-          <span class="pix-flow-label">{{"The system I built" | t}}</span>
-          <strong>{{"Reserve the amount" | t}}</strong>
-          <p>{{"Sets the money aside and asks the receiving bank for a decision." | t}}</p>
-        </div>
-        <span class="pix-journey-arrow" aria-hidden="true">↔</span>
-        <div class="pix-bank">
-          <span class="pix-flow-label">{{"Receiving bank" | t}}</span>
-          <strong>{{"Accept or decline" | t}}</strong>
-          <p>{{"Decides whether to accept the payment." | t}}</p>
-        </div>
-      </div>
-      <div class="pix-payment-outcomes">
-        <div><span>{{"If accepted" | t}}</span><p>{{"The reserved R$100 moves to the receiving bank." | t}}</p></div>
-        <div><span>{{"If declined" | t}}</span><p>{{"The R$100 becomes available to the sending bank again." | t}}</p></div>
-      </div>
-      <figcaption>{{"My system records the outcome and returns a final answer to the sending bank." | t}}</figcaption>
-    </figure>
-    <p class="pix-scope">{{"The core handles the money banks hold for transfers between them. Customer accounts are represented separately in the demo." | t}}</p>
-  </section>
-
-  <section class="pix-reliability" aria-labelledby="reliability-heading">
-    <div class="pix-section-heading">
-      <h2 id="reliability-heading">{{"What needed to work reliably" | t}}</h2>
-      <p>{{"A payment can be repeated, compete with another payment, or finish before its confirmation arrives. Each situation changes what the system needs to remember." | t}}</p>
-    </div>
-    <div class="pix-situations">
-      <section class="pix-situation" aria-labelledby="repeat-heading">
-        <span class="pix-situation-number" aria-hidden="true">01</span>
-        <div>
-          <h3 id="repeat-heading">{{"The same payment arrives twice" | t}}</h3>
-          <p>{{"A bank may send the same payment again while waiting for an answer. I compare its reference number and details with the saved payment, so another attempt cannot cause a second transfer." | t}}</p>
-          <p class="pix-consequence">{{"The intended amount moves once, even if the bank tries again." | t}}</p>
-          <details class="pix-depth">
-            <summary>{{"How I recognize the same payment" | t}}</summary>
-            <p>{{decisions[0].explanation | t}}</p><p>{{decisions[0].tradeoff | t}}</p>
-            <a [href]="decisions[0].sourceUrl" target="_blank" rel="noopener noreferrer">{{"Implementation notes" | t}}</a>
-          </details>
-        </div>
-      </section>
-      <section class="pix-situation" aria-labelledby="balance-heading">
-        <span class="pix-situation-number" aria-hidden="true">02</span>
-        <div>
-          <h3 id="balance-heading">{{"Several payments need the same money" | t}}</h3>
-          <p>{{"The bank may have enough money for one payment but not for all of them. I reserve each amount before asking the receiving bank to decide, so other payments can only use what remains available." | t}}</p>
-          <p class="pix-consequence">{{"Money committed to one payment cannot also fund another." | t}}</p>
-          <details class="pix-depth">
-            <summary>{{"How I keep the balances consistent" | t}}</summary>
-            <p>{{decisions[1].explanation | t}}</p><p>{{decisions[1].tradeoff | t}}</p>
-            <p>{{"In this project, a pending payment does not expire automatically. If the receiving bank does not respond, the money stays reserved." | t}}</p>
-            <a [href]="decisions[1].sourceUrl" target="_blank" rel="noopener noreferrer">{{"Implementation notes" | t}}</a>
-          </details>
-        </div>
-      </section>
-      <section class="pix-situation" aria-labelledby="confirmation-heading">
-        <span class="pix-situation-number" aria-hidden="true">03</span>
-        <div>
-          <h3 id="confirmation-heading">{{"The money moves, but the confirmation is missing" | t}}</h3>
-          <p>{{"Completing the transfer does not guarantee that its confirmation reaches the bank. I save the result together with the payment, so the bank can recover that answer after an interruption." | t}}</p>
-          <p class="pix-consequence">{{"The bank can confirm what happened without moving the money again." | t}}</p>
-          <details class="pix-depth">
-            <summary>{{"How banks recover the result" | t}}</summary>
-            <p>{{decisions[2].explanation | t}}</p><p>{{decisions[2].tradeoff | t}}</p>
-            <a [href]="decisions[2].sourceUrl" target="_blank" rel="noopener noreferrer">{{"Implementation notes" | t}}</a>
-          </details>
-        </div>
-      </section>
-    </div>
-  </section>
+  <div class="pix-story">
+    <p>{{"The challenge was to keep up during busy periods without losing track of any payment. If a bank sent the same payment again while waiting for an answer, it still needed to receive one clear result, without moving money twice." | t}}</p>
+    <p>{{"I set a target of at least 2,000 new payments per second, with 99% of final answers reaching the sending bank within one second. I built the tools to keep that demand steady and check the answers as they arrived." | t}}</p>
+    <p>{{"Each round of testing showed where time was being spent. I used that evidence to change the design and repeated the tests. The measurement ended only when the bank received the final result." | t}}</p>
+  </div>
 
   <section class="pix-results" aria-labelledby="results-heading">
-    <div class="pix-section-heading">
-      <h2 id="results-heading">{{"What the tests showed" | t}}</h2>
-      <p>{{"I checked payment results while sending thousands of payments per second. Two 15-minute runs included completed payments, insufficient funds and repeated attempts." | t}}</p>
-    </div>
+    <h2 id="results-heading">{{"What the tests showed" | t}}</h2>
+    <p class="pix-results-intro">{{"I ran the final version twice for 15 minutes each, including completed payments, payments declined for insufficient funds and repeated attempts." | t}}</p>
     <div class="pix-metrics">
-      <div><p class="pix-metric-question">{{"How much activity?" | t}}</p><strong>{{"≈2,100" | t}}</strong><h3>{{"New payment attempts / second" | t}}</h3></div>
-      <div><p class="pix-metric-question">{{"How long for an answer?" | t}}</p><strong>&lt;1 <small>{{"second" | t}}</small></strong><h3>{{"For 99% of measured answers" | t}}</h3><p>{{"Measured through to the answer received by the bank." | t}}</p></div>
-      <div><p class="pix-metric-question">{{"Did the checks find errors?" | t}}</p><strong>0</strong><h3>{{"Incorrect outcomes found" | t}}</h3><p>{{"Across the tested payments and repeated attempts." | t}}</p></div>
+      <div>
+        <p class="pix-metric-question">{{"How much activity?" | t}}</p>
+        <strong>{{"≈2,100" | t}}</strong>
+        <h3>{{"New payment attempts / second" | t}}</h3>
+      </div>
+      <div>
+        <p class="pix-metric-question">{{"How long for an answer?" | t}}</p>
+        <strong>&lt;1 <small>{{"second" | t}}</small></strong>
+        <h3>{{"For 99% of measured answers" | t}}</h3>
+        <p>{{"Measured through to the answer received by the bank." | t}}</p>
+      </div>
+      <div>
+        <p class="pix-metric-question">{{"Did the checks find errors?" | t}}</p>
+        <strong>0</strong>
+        <h3>{{"Incorrect outcomes found" | t}}</h3>
+        <p>{{"Across the tested payments and repeated attempts." | t}}</p>
+      </div>
     </div>
-    <p class="pix-test-context">{{"These were local tests using simulated payments." | t}}</p>
-    <details class="pix-depth">
+    <div class="pix-results-context">
+      <p>{{"Both runs met the target. I kept both results to show the variation, including the slower run." | t}}</p>
+      <p>{{"These were local tests using simulated payments." | t}}</p>
+    </div>
+    <details class="pix-evidence">
       <summary>{{"Measurements and original reports" | t}}</summary>
       <app-test-results />
-      <h3>{{"How I checked the test workload" | t}}</h3>
-      <p>{{decisions[3].explanation | t}}</p><p>{{decisions[3].tradeoff | t}}</p>
-      <a [href]="decisions[3].sourceUrl" target="_blank" rel="noopener noreferrer">{{"Implementation notes" | t}}</a>
     </details>
-    <details class="pix-depth"><summary>{{"Explore the architecture" | t}}</summary><app-system-map /></details>
   </section>
+
+  <nav class="pix-project-links" [attr.aria-label]="'Project resources' | t">
+    <a href="https://github.com/borgeskauan/instant-payment-system" target="_blank" rel="noopener noreferrer">{{"Code and engineering notes" | t}} <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/borgeskauan/instant-payment-system/tree/master/demo" target="_blank" rel="noopener noreferrer">{{"Demo & setup" | t}} <span aria-hidden="true">↗</span></a>
+  </nav>
   <footer class="d-case-footer"><a routerLink="/">{{"Back to projects" | t}}</a></footer>
 </article>
