@@ -1,0 +1,8 @@
+:host{display:block}
+.portfolio-topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:min(var(--page-width),calc(100% - 2 * var(--page-gutter)));margin:auto;padding-top:var(--space-3)}
+nav{display:flex;align-items:center;gap:var(--space-1)}
+a,button{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;background:transparent;color:var(--muted);border:1px solid transparent;border-radius:var(--radius-control);font:inherit;font-size:var(--type-small);padding:.4rem .65rem;text-decoration:none;cursor:pointer}
+svg{display:block;width:1.25rem;height:1.25rem}
+a:hover,button:hover{color:var(--ink)}
+button[aria-pressed=true]{color:var(--ink);background:var(--panel);border-color:var(--line)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}

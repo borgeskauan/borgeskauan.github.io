@@ -1,0 +1,31 @@
+<section class="payment-stage" aria-label="Payment example">
+<div class="principles" aria-label="Payment principles">@for(title of titles;track title;let i=$index){<button type="button" [attr.aria-pressed]="mode()===i" (click)="select(i)">{{title | t}}</button>}</div>
+<div class="stage-heading"><span>{{"Example payment" | t}} · R$100</span><span>{{step()+1}} / 4</span></div>
+<div class="principle-scene" [class.s1]="step()===1" [class.s2]="step()===2" [class.s3]="step()===3" [class.declined]="declined()">
+@if(mode()===0){
+<div class="reserve-scene">
+<div class="zone available-zone"><span>{{"Available to spend" | t}}</span><strong>R$ {{sender()}}</strong></div>
+<div class="zone reserved-zone"><span>{{"Reserved for this payment" | t}}</span><strong>R$ {{step()>0 && step()<3 ? 100 : 0}}</strong></div>
+<div class="zone recipient-zone"><span>{{"Received by the recipient" | t}}</span><strong>R$ {{recipient()}}</strong></div>
+<div class="cash-block fixed-cash">R$100</div><div class="cash-block moving-cash">R$100</div>
+</div>
+}@else if(mode()===1){
+<div class="duplicate-scene">
+<div class="instruction-area"><span class="scene-label">{{"Same payment instruction" | t}}</span><div class="instruction original">#42 <b>R$100</b></div><div class="instruction copy copy-one">#42 <b>R$100</b></div><div class="instruction copy copy-two">#42 <b>R$100</b></div></div>
+<div class="record-area"><span>{{"Payment record" | t}}</span><strong>#42</strong><span>{{(step()===0?'Waiting':step()===3?'Copies recognized':'Payment saved') | t}}</span><div class="record-check" [class.visible]="step()===3">✓ {{"Same payment" | t}}</div></div>
+<div class="transfer-total"><span>{{"Total transferred" | t}}</span><strong>R$ {{step()===0?0:100}}</strong><span>{{(step()===0?'No transfer yet':'One transfer only') | t}}</span></div>
+<div class="transfer-pulse" [class.visible]="step()===1">R$100</div>
+</div>
+}@else{
+<div class="receipt-scene">
+<div class="journey-endpoints"><span>{{"Sending bank" | t}}</span><span>{{"Recipient" | t}}<strong>R$ {{step()===0?0:100}}</strong></span></div>
+<div class="money-lane"><span class="lane-label">{{"Money" | t}} →</span><div class="lane-track"></div><div class="money-parcel">R$100</div></div>
+<div class="receipt-lane"><span class="lane-label">← {{"Confirmation" | t}}</span><div class="lane-track"></div><div class="receipt-parcel">✓ #42</div><span class="delivery-gap">{{"Not received" | t}}</span></div>
+<div class="saved-receipt"><span>{{"Saved payment result" | t}}</span><strong>✓ #42 · R$100</strong><span>{{"Payment completed" | t}}</span></div>
+</div>
+}
+</div>
+<p class="scene-message" aria-live="polite" aria-atomic="true">{{message() | t}}</p>
+<div class="stage-controls"><button class="play" type="button" (click)="running()?stop():play()">{{(running()?'Pause':step()===0?'Play example':'Replay') | t}}</button><button type="button" (click)="stop();step.set((step()+1)%4)">{{"Next step" | t}}</button>@if(mode()===0){<label><input type="checkbox" [checked]="declined()" (change)="stop();declined.set(!declined());step.set(0)">{{"Show a declined payment" | t}}</label>}</div>
+<p class="scene-note">{{"Illustrative balances. No real money moves." | t}}</p>
+</section>
