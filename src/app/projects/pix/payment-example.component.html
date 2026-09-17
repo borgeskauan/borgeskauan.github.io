@@ -1,5 +1,12 @@
 <section class="payment-stage" aria-label="Payment example">
 <div class="principles" aria-label="Payment principles">@for(title of titles;track title;let i=$index){<button type="button" [attr.aria-pressed]="mode()===i" (click)="select(i)">{{title | t}}</button>}</div>
+<p class="principle-explanation" aria-live="polite" aria-atomic="true">
+@switch(mode()){
+  @case(0){ {{"I reserve the amount while the receiving bank decides, so it cannot be spent elsewhere. A declined payment releases it." | t}} }
+  @case(1){ {{"I check whether another attempt belongs to an existing payment before allowing money to move again." | t}} }
+  @case(2){ {{"I save the payment result so the bank can recover a missing confirmation without repeating the transfer." | t}} }
+}
+</p>
 <div class="stage-heading"><span>{{"Example payment" | t}} · R$100</span><span>{{step()+1}} / 4</span></div>
 <div class="principle-scene" [class.s1]="step()===1" [class.s2]="step()===2" [class.s3]="step()===3" [class.declined]="declined()">
 @if(mode()===0){
