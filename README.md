@@ -11,7 +11,7 @@ The former `/versions/32` URLs redirect to these pages. There are no historical 
 
 ## Development
 
-`npm start` runs the development server. `npm run build` generates the static site in `build/`. `npm run verify` checks payment behavior, translations, reports, and generated pages.
+`npm start` runs the development server. `npm run build` generates the static site in `build/`. `npm run verify` checks build metadata, translations, evidence, and generated pages.
 
 Project media and original test reports are in `public/`. Both pages share `layout/top-bar.component.ts` and the palette, typography, width, and spacing tokens in `src/theme.css`. Route-specific content remains independent.
 

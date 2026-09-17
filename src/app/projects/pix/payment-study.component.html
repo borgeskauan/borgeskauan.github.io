@@ -1,0 +1,77 @@
+<article class="study">
+  <a class="study-back" routerLink="/"><span aria-hidden="true">←</span> {{"All projects" | t}}</a>
+
+  <div class="study-opening">
+    <header class="study-introduction">
+      <p class="study-label">{{"Independent project" | t}}</p>
+      <h1>Instant Payment System</h1>
+      <p class="study-purpose">{{"I built a system to move money between simulated banks. My focus was how it behaved when thousands of payments arrived every second." | t}}</p>
+      <p class="study-ownership">{{"I owned the design, implementation and testing, including the tools used to measure it." | t}}</p>
+      <div class="study-target">
+        <h2>{{"The target I set" | t}}</h2>
+        <p>{{"At least 2,000 new payments a second, with 99% of final answers reaching the bank within one second." | t}}</p>
+      </div>
+    </header>
+
+    <figure class="study-measurement" aria-labelledby="measurement-title">
+      <figcaption id="measurement-title">
+        <span class="study-label">{{"Measured in two separate runs" | t}}</span>
+        <strong>{{"Around 2,100 payment attempts a second" | t}}</strong>
+        <span class="study-duration">{{"15 minutes of sustained demand in each run" | t}}</span>
+      </figcaption>
+      <div class="study-chart">
+        <p class="study-chart-question">{{"How long did the banks wait?" | t}}</p>
+        <p class="study-chart-definition">{{"99% of measured answers arrived within:" | t}}</p>
+        <div class="study-chart-scale" aria-hidden="true"><span>0</span><span>{{"1 second · target" | t}}</span></div>
+        @for(run of runs;track run.id){
+          <div class="study-measurement-row">
+            <div class="study-measurement-label"><span>{{run.label | t}}</span><strong>{{run.answerSeconds.toFixed(2) | localNumber}} <span>{{"seconds" | t}}</span></strong></div>
+            <div class="study-track" aria-hidden="true"><span class="study-bar" [style.width.%]="run.answerSeconds * 100"></span></div>
+          </div>
+        }
+      </div>
+      <p class="study-checks"><strong>{{totalErrors}}</strong><span>{{"errors reported by the payment-result and repeat-payment checks" | t}}</span></p>
+      <p class="study-setting">{{"Local simulations. All services and test tools ran on one computer." | t}}</p>
+    </figure>
+  </div>
+
+  <section class="study-interpretation" aria-labelledby="approach-title">
+    <h2 id="approach-title">{{"How I evaluated the system" | t}}</h2>
+    <div>
+      <p>{{"Speed mattered only if the bank also got the right answer. I counted a payment as complete when its final confirmation arrived, and tested completed payments alongside declines and repeated attempts." | t}}</p>
+      <p>{{"To reach the target, I measured where the system spent time, revised the design and tested again. Both final runs met the target. I kept the slower result too, so the evidence shows the variation I observed." | t}}</p>
+    </div>
+  </section>
+
+  <details class="study-record">
+    <summary>{{"Check the measurements" | t}}</summary>
+    <div class="study-record-body">
+      <p>{{"Both runs used the same code and settings. The test checked the lowest activity in any one-second window as well as the average, so a later burst could not hide a quiet period." | t}}</p>
+      <div class="study-record-runs">
+        @for(run of runs;track run.id){
+          <section>
+            <h3>{{run.label | t}}</h3>
+            <dl>
+              <div><dt>{{"New payments started per second, on average" | t}}</dt><dd>{{run.averageRate.toString() | localNumber}}</dd></div>
+              <div><dt>{{"Lowest number started in one second" | t}}</dt><dd>{{run.lowestRate.toString() | localNumber}}</dd></div>
+              <div><dt>{{"Time for 99% of final answers" | t}}</dt><dd>{{run.answerMilliseconds.toString() | localNumber}} ms</dd></div>
+              <div><dt>{{"Planned payments that did not start" | t}}</dt><dd>{{run.missedStarts.toString() | localNumber}}</dd></div>
+              <div><dt>{{"Reported errors" | t}}</dt><dd>{{run.errors.toString() | localNumber}}</dd></div>
+            </dl>
+            <a [href]="run.reportUrl" target="_blank" rel="noopener noreferrer">{{"Original report" | t}} <span aria-hidden="true">↗</span></a>
+          </section>
+        }
+      </div>
+      <p>{{"The workload included payments completed, payments declined for insufficient funds, and repeated instructions. These measurements describe this local test, not the operation of a production bank." | t}}</p>
+      <a href="https://github.com/borgeskauan/instant-payment-system/blob/master/docs/performance.md" target="_blank" rel="noopener noreferrer">{{"Full test method and environment" | t}} <span aria-hidden="true">↗</span></a>
+    </div>
+  </details>
+
+  <footer class="study-sources">
+    <p>{{"The implementation and development history are available in the project repository." | t}}</p>
+    <div>
+      <a href="https://github.com/borgeskauan/instant-payment-system" target="_blank" rel="noopener noreferrer">{{"Source code" | t}} <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/borgeskauan/instant-payment-system/blob/master/docs/engineering-evolution.md" target="_blank" rel="noopener noreferrer">{{"Development history" | t}} <span aria-hidden="true">↗</span></a>
+    </div>
+  </footer>
+</article>
