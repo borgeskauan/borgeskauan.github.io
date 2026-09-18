@@ -73,5 +73,8 @@
   "Both tests met the target": "Os dois testes atingiram a meta",
   "The final system completed two separate 15-minute tests.": "O sistema final passou por dois testes separados de 15 minutos.",
   "Target: at least 2,000": "Meta: pelo menos 2.000",
-  "Met in both tests": "Atingida nos dois testes"
+  "Met in both tests": "Atingida nos dois testes",
+  "Compare layouts": "Comparar layouts",
+  "Editorial": "Editorial",
+  "Results beside the story": "Resultados ao lado do texto"
 }
