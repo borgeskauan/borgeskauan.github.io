@@ -6,6 +6,7 @@
 .study h1{font-size:clamp(2.5rem,5vw,3.75rem);line-height:1.1;letter-spacing:-.035em;font-weight:500;margin:1rem 0 1.5rem;max-width:16ch}
 .study .study-purpose{font-size:1.1875rem;line-height:1.75;color:var(--ink)}
 .study .study-ownership{margin-top:1.25rem;font-size:1rem;line-height:1.75}
+.study-ownership strong,.study-section>p strong{font-weight:600;color:var(--ink)}
 .study-section{margin-top:2.75rem}
 .study-section h2{font-size:1.375rem;line-height:1.4;font-weight:500;letter-spacing:-.015em;margin-bottom:1rem;color:var(--ink)}
 .study-section>p{font-size:1.0625rem;line-height:1.8}
@@ -15,6 +16,8 @@
 .study .study-figure{display:flex;flex-direction:column;justify-content:start;align-items:start;position:relative;padding-top:1.8rem;gap:.4rem;font-size:1rem;line-height:1.6;max-width:24ch}
 .study-figure strong{font-size:clamp(2.75rem,5vw,3.5rem);font-weight:500;line-height:1.15;letter-spacing:-.035em;font-variant-numeric:tabular-nums;color:var(--ink)}
 .study-figure .study-qualifier{position:absolute;top:0;font-size:.875rem;color:var(--dim)}
+.study-figure .study-result-caption{min-height:3.2em}
+.study-figure .study-result-target{font-size:.875rem;color:var(--dim);margin-top:.35rem}
 .study .study-scope{font-size:.875rem;line-height:1.75;color:var(--dim);margin-top:1.25rem}
 .study-sources{display:flex;flex-wrap:wrap;gap:.5rem 1.75rem;border-top:1px solid var(--line);margin-top:2rem;padding-top:1rem}
 .study-sources a{display:inline-flex;align-items:center;gap:.4rem;min-height:44px;font-size:.875rem}
@@ -27,6 +30,7 @@
   .study-section>p{font-size:1rem}
   .study-figures{grid-template-columns:1fr;gap:1.75rem}
   .study .study-figure{max-width:none}
+  .study-figure .study-result-caption{min-height:0}
   .study-figure:nth-child(2){padding-top:0}
   .study-sources{gap:.25rem 1.25rem}
 }
