@@ -39,23 +39,25 @@
       <ol class="study-sequence" role="list">
         <li>
           <span class="study-step-number" aria-hidden="true">1</span>
-          <h2>{{"I set a clear goal" | t}}</h2>
-          <p>{{"The system needed to stay fast and handle payments correctly when thousands arrived every second." | t}}</p>
+          <h2>{{"Set the goal" | t}}</h2>
+          <p>{{"Keep payments fast and correct under sustained demand." | t}}</p>
         </li>
         <li>
           <span class="study-step-number" aria-hidden="true">2</span>
-          <h2>{{"I checked whether my changes actually helped" | t}}</h2>
-          <p>{{"As demand increased, I investigated delays and revised the system. Some changes made individual parts faster without improving the complete payment. I used the overall result to decide what to keep." | t}}</p>
+          <h2>{{"Decide what to change" | t}}</h2>
+          <p>{{"Investigate delays and keep changes that improve the complete payment." | t}}</p>
         </li>
         <li>
           <span class="study-step-number" aria-hidden="true">3</span>
-          <h2>{{"I checked the finished system against that goal" | t}}</h2>
-          <p>{{"In two separate 15-minute local tests, the system met the speed target. The checks reported no missing or conflicting answers, or errors in handling repeated payments." | t}}</p>
+          <h2>{{"Check the result" | t}}</h2>
+          <p>{{"Both local tests met the target." | t}}</p>
         </li>
       </ol>
+      <p class="study-sequence-decision">{{"Some changes made individual parts faster without helping the payment as a whole. I measured the complete journey, through to the bank receiving its final answer, to decide which changes to keep." | t}}</p>
       <div class="study-sequence-evidence">
         <ng-container [ngTemplateOutlet]="resultFigures" />
-        <p class="study-scope">{{"Both tests used the same code and settings. All services and testing tools ran on one computer." | t}}</p>
+        <p class="study-sequence-checks">{{"The checks reported no missing or conflicting answers, or errors in handling repeated payment instructions." | t}}</p>
+        <p class="study-scope">{{"Both tests lasted 15 minutes and used the same code and settings. All services and testing tools ran on one computer." | t}}</p>
       </div>
     }@else{
     @if(layout()==='overview'){

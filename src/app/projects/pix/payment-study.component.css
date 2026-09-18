@@ -79,7 +79,9 @@
 .study-step-number{position:absolute;top:0;left:0;z-index:1;display:grid;place-items:center;width:2rem;height:2rem;border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--accent);font-size:.875rem}
 .study-sequence h2{font-size:1.1875rem;line-height:1.5;font-weight:500;letter-spacing:-.015em;margin:0 0 1rem;color:var(--ink)}
 .study-sequence p{font-size:1rem;line-height:1.8}
-.study-sequence-evidence{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.study .study-sequence-decision{max-width:48rem;margin-top:2rem;font-size:1rem;line-height:1.8}
+.study .study-sequence-checks{max-width:48rem;font-size:.9375rem;line-height:1.8}
+.study-sequence-evidence{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line)}
 .study-sequence-evidence .study-figures{max-width:43rem;margin:0 0 1.5rem}
 .study--sequence .study-sources{margin-left:0}
 @media(max-width:55rem){
