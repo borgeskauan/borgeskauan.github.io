@@ -3,22 +3,22 @@
   <header class="study-introduction">
     <p class="study-label">{{"Independent project" | t}}</p>
     <h1>Instant Payment System</h1>
-    <p class="study-purpose">{{"I built a system to move money between simulated banks. I wanted to understand what it would take to keep payments fast and correct as demand increased." | t}}</p>
+    <p class="study-purpose">{{"I built a system to move money between simulated banks. The challenge was keeping payments fast and correct when thousands arrived every second." | t}}</p>
     <p class="study-ownership"><strong>{{"I was responsible for the design, development and testing" | t}}</strong>{{", including the tools used to evaluate it." | t}}</p>
   </header>
   <div class="study-body">
     <section class="study-section" aria-labelledby="target-title">
       <h2 id="target-title">{{"Setting the target" | t}}</h2>
       <div class="study-section-body">
-        <p>{{"I focused on payments between banks and set a target: at least 2,000 payment attempts per second, with 99% of final answers reaching the bank within one second." | t}}</p>
+        <p>{{"I set a target of at least 2,000 payment attempts per second, with 99% of final answers reaching the bank within one second." | t}}</p>
         <p>{{"The tests also included payments declined for insufficient funds and the same payment being sent more than once. The system needed to handle those correctly while keeping up with demand." | t}}</p>
       </div>
     </section>
     <section class="study-section" aria-labelledby="approach-title">
       <h2 id="approach-title">{{"Finding what needed to change" | t}}</h2>
       <div class="study-section-body">
-        <p>{{"As I increased demand, I investigated where delays came from." | t}} <strong>{{"Some pauses came from my own testing tool." | t}}</strong> {{"I rebuilt it so I could test the payment system under steadier demand." | t}}</p>
-        <p>{{"I also found that making one part faster didn’t necessarily improve the complete payment. I measured the complete journey, through to the final answer reaching the bank." | t}} <strong>{{"That helped me decide which changes to keep." | t}}</strong></p>
+        <p>{{"As demand increased, I investigated the delays." | t}} <strong>{{"Some came from my own testing tool." | t}}</strong> {{"I rebuilt it to maintain steadier demand." | t}}</p>
+        <p>{{"Some changes made individual parts faster without improving the payment as a whole." | t}} <strong>{{"I measured the complete journey to decide which changes to keep." | t}}</strong></p>
       </div>
     </section>
     <section class="study-section study-results" aria-labelledby="results-title">
@@ -27,7 +27,7 @@
         <p>{{"The final system completed two separate 15-minute tests." | t}}</p>
         <div class="study-figures">
           <p class="study-figure"><span class="study-qualifier">{{"Around" | t}}</span><strong>{{"2,100" | localNumber}}</strong><span class="study-result-caption">{{"payment attempts per second" | t}}</span><span class="study-result-target">{{"Target: at least 2,000" | t}}</span></p>
-          <p class="study-figure"><strong>99%</strong><span class="study-result-caption">{{"of final answers within one second" | t}}</span><span class="study-result-target">{{"Met in both tests" | t}}</span></p>
+          <p class="study-figure"><strong>99%</strong><span class="study-result-caption">{{"of final answers reached the bank within one second" | t}}</span><span class="study-result-target">{{"Met in both tests" | t}}</span></p>
         </div>
         <p>{{"The checks reported no missing or conflicting answers, or errors in handling repeated payment instructions." | t}}</p>
         <p class="study-scope">{{"Both tests used the same code and settings. All services and testing tools ran on one computer." | t}}</p>
