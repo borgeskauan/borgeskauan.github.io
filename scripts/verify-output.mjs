@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {readFile,readdir,stat} from 'node:fs/promises';
 import {join} from 'node:path';
 const root='build';
-for(const [route,expected] of [['',['Kauan Borges','Software developer','Projects','Instant Payment System','Movie discovery']],['projects/pix',['The challenge','Finding what needed to change','The results','Payments per second','under a second.','Inspired by where Pix started.','2,100','99%','How I built and tested it','Source code']]]){
+for(const [route,expected] of [['',['Kauan Borges','Software developer','Projects','Instant Payment System','Valora','SupportAI']],['projects/pix',['The challenge','Finding what needed to change','The results','Payments per second','under a second.','Inspired by where Pix started.','2,100','99%','How I built and tested it','Source code']]]){
  const html=await readFile(join(root,route,'index.html'),'utf8');
  for(const text of expected)assert.ok(html.includes(text),`${route}: ${text}`);
  assert.ok(!/app-build-version|build-version|version-details/.test(html),`${route}: no version debug UI`);

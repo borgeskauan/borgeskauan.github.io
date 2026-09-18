@@ -5,12 +5,8 @@ import {Component,input} from '@angular/core';
 <div [class]="'s-media s-media-' + project()">
   @switch(project()){
     @case('pix'){<img src="/assets/dark/payment-app.png" [alt]="'Payment demo interface with Alice and Bob as example customers' | t" width="1440" height="1000" loading="lazy">}
-    @case('movie-discovery'){<img src="/assets/dark/movie-details.png" [alt]="'Movie detail page in the Angular application, with a poster, description and review tabs' | t" width="1920" height="1080" loading="lazy">}
-    @case('kafka-chat'){
-
-        <div class="p-chat-diagram" role="img" [attr.aria-label]="&quot;Terminal A and Terminal B exchange messages through Kafka&quot; | t"><span>{{"Terminal A" | t}}</span><span aria-hidden="true">→</span><strong>{{"Kafka" | t}}</strong><span aria-hidden="true">→</span><span>{{"Terminal B" | t}}</span></div>
-
-    }
+    @case('valora'){<img src="/assets/dark/valora-conversation.jpg" [alt]="'WhatsApp conversation used to find and update a recorded expense' | t" width="1080" height="757" loading="lazy">}
+    @case('support-ai'){<img src="/assets/dark/support-ai-faq.png" [alt]="'SupportAI FAQ draft shown beside the source support cases and review controls' | t" width="1888" height="1884" loading="lazy">}
   }
 </div>`})
 export class ProjectMediaComponent {readonly project=input('pix');}

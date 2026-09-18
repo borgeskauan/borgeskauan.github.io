@@ -16,7 +16,7 @@ import {ProjectMediaComponent} from './project-media.component';
       <article class="identity-project" [attr.aria-labelledby]="'project-' + project.slug">
 
         <div class="identity-project-inner">
-          <div class="identity-project-media" [class.identity-chat-media]="project.slug === 'kafka-chat'">
+          <div class="identity-project-media">
             @if(project.destination.kind === 'case-study'){<a [routerLink]="projectUrl(project)" [attr.aria-label]="('Open ' + project.title + ' notes') | t"><ng-container [ngTemplateOutlet]="media" [ngTemplateOutletContext]="{project}" /></a>}@else{<a [href]="projectUrl(project)" target="_blank" rel="noopener noreferrer" [attr.aria-label]="('Open ' + project.title + ' repository') | t"><ng-container [ngTemplateOutlet]="media" [ngTemplateOutletContext]="{project}" /></a>}
           </div>
           <div class="identity-project-copy">
