@@ -12,11 +12,11 @@ import {TranslatePipe,LocalNumberPipe} from '../../i18n/locale.service';
   styleUrl:'./payment-study.component.css'
 })
 export class PaymentStudyComponent {
-  readonly layout=signal<'editorial'|'results'|'overview'>('editorial');
+  readonly layout=signal<'editorial'|'results'|'overview'|'sequence'>('editorial');
   private readonly route=inject(ActivatedRoute);
   private readonly router=inject(Router);
   selectLayout(value:string){
-    const layout=value==='results'||value==='overview'?value:'editorial';
+    const layout=value==='results'||value==='overview'||value==='sequence'?value:'editorial';
     void this.router.navigate([],{
       relativeTo:this.route,
       queryParams:{layout:layout==='editorial'?null:layout},
@@ -27,7 +27,7 @@ export class PaymentStudyComponent {
   constructor(){
     this.route.queryParamMap.pipe(takeUntilDestroyed()).subscribe(params=>{
       const value=params.get('layout');
-      this.layout.set(value==='results'||value==='overview'?value:'editorial');
+      this.layout.set(value==='results'||value==='overview'||value==='sequence'?value:'editorial');
     });
     inject(Meta).updateTag({name:'description',content:'A payment system built and tested by Kauan Borges: sustained demand, response times, and the evidence from two local tests.'});
   }

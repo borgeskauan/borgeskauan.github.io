@@ -77,5 +77,12 @@
   "Compare layouts": "Comparar layouts",
   "Editorial": "Editorial",
   "Results beside the story": "Resultados ao lado do texto",
-  "Overview, then the story": "Visão geral, depois o texto"
+  "Overview, then the story": "Visão geral, depois o texto",
+  "Goal, decisions, outcome": "Meta, decisões, resultado",
+  "I set a clear goal": "Defini uma meta clara",
+  "The system needed to stay fast and handle payments correctly when thousands arrived every second.": "O sistema precisava continuar rápido e lidar corretamente com os pagamentos, mesmo com milhares chegando a cada segundo.",
+  "I checked whether my changes actually helped": "Verifiquei se minhas mudanças realmente ajudavam",
+  "As demand increased, I investigated delays and revised the system. Some changes made individual parts faster without improving the complete payment. I used the overall result to decide what to keep.": "Conforme a demanda aumentava, investiguei os atrasos e fiz ajustes no sistema. Algumas mudanças tornavam partes isoladas mais rápidas sem melhorar o pagamento como um todo. Usei o resultado completo para decidir o que manter.",
+  "I checked the finished system against that goal": "Conferi se o sistema final atingia a meta",
+  "In two separate 15-minute local tests, the system met the speed target. The checks reported no missing or conflicting answers, or errors in handling repeated payments.": "Em dois testes locais separados de 15 minutos, o sistema atingiu a meta de velocidade. As verificações não apontaram respostas ausentes ou contraditórias, nem erros ao lidar com pagamentos repetidos."
 }

@@ -1,4 +1,4 @@
-<article class="study" [class.study--results-beside]="layout()==='results'" [class.study--overview]="layout()==='overview'" [attr.data-layout]="layout()">
+<article class="study" [class.study--results-beside]="layout()==='results'" [class.study--overview]="layout()==='overview'" [class.study--sequence]="layout()==='sequence'" [attr.data-layout]="layout()">
   <div class="study-toolbar">
     <a class="study-back" routerLink="/"><span aria-hidden="true">←</span> {{"All projects" | t}}</a>
     <div class="study-layout-switch">
@@ -7,6 +7,7 @@
         <option value="editorial">{{"Editorial" | t}}</option>
         <option value="results">{{"Results beside the story" | t}}</option>
         <option value="overview">{{"Overview, then the story" | t}}</option>
+        <option value="sequence">{{"Goal, decisions, outcome" | t}}</option>
       </select>
     </div>
   </div>
@@ -16,21 +17,47 @@
     <p class="study-purpose">{{"I built a system to move money between simulated banks. I wanted to understand what it would take to keep payments fast and correct as demand increased." | t}}</p>
     <p class="study-ownership"><strong>{{"I was responsible for the design, development and testing" | t}}</strong>{{", including the tools used to evaluate it." | t}}</p>
   </header>
+  <ng-template #resultFigures>
+        <div class="study-figures">
+          <p class="study-figure"><span class="study-qualifier">{{"Around" | t}}</span><strong>{{"2,100" | localNumber}}</strong><span class="study-result-caption">{{"payment attempts per second" | t}}</span><span class="study-result-target">{{"Target: at least 2,000" | t}}</span></p>
+          <p class="study-figure"><strong>99%</strong><span class="study-result-caption">{{"of final answers within one second" | t}}</span><span class="study-result-target">{{"Met in both tests" | t}}</span></p>
+        </div>
+  </ng-template>
   <ng-template #resultsSection>
     <section class="study-section study-results" aria-labelledby="results-title">
       <h2 id="results-title">{{"Both tests met the target" | t}}</h2>
       <div class="study-section-body">
         <p>{{"The final system completed two separate 15-minute tests." | t}}</p>
-        <div class="study-figures">
-          <p class="study-figure"><span class="study-qualifier">{{"Around" | t}}</span><strong>{{"2,100" | localNumber}}</strong><span class="study-result-caption">{{"payment attempts per second" | t}}</span><span class="study-result-target">{{"Target: at least 2,000" | t}}</span></p>
-          <p class="study-figure"><strong>99%</strong><span class="study-result-caption">{{"of final answers within one second" | t}}</span><span class="study-result-target">{{"Met in both tests" | t}}</span></p>
-        </div>
+        <ng-container [ngTemplateOutlet]="resultFigures" />
         <p>{{"The checks reported no missing or conflicting answers, or errors in handling repeated payment instructions." | t}}</p>
         <p class="study-scope">{{"Both tests used the same code and settings. All services and testing tools ran on one computer." | t}}</p>
       </div>
     </section>
   </ng-template>
   <div class="study-comparison">
+    @if(layout()==='sequence'){
+      <ol class="study-sequence" role="list">
+        <li>
+          <span class="study-step-number" aria-hidden="true">1</span>
+          <h2>{{"I set a clear goal" | t}}</h2>
+          <p>{{"The system needed to stay fast and handle payments correctly when thousands arrived every second." | t}}</p>
+        </li>
+        <li>
+          <span class="study-step-number" aria-hidden="true">2</span>
+          <h2>{{"I checked whether my changes actually helped" | t}}</h2>
+          <p>{{"As demand increased, I investigated delays and revised the system. Some changes made individual parts faster without improving the complete payment. I used the overall result to decide what to keep." | t}}</p>
+        </li>
+        <li>
+          <span class="study-step-number" aria-hidden="true">3</span>
+          <h2>{{"I checked the finished system against that goal" | t}}</h2>
+          <p>{{"In two separate 15-minute local tests, the system met the speed target. The checks reported no missing or conflicting answers, or errors in handling repeated payments." | t}}</p>
+        </li>
+      </ol>
+      <div class="study-sequence-evidence">
+        <ng-container [ngTemplateOutlet]="resultFigures" />
+        <p class="study-scope">{{"Both tests used the same code and settings. All services and testing tools ran on one computer." | t}}</p>
+      </div>
+    }@else{
     @if(layout()==='overview'){
       <ng-container [ngTemplateOutlet]="resultsSection" />
     }
@@ -50,6 +77,7 @@
     </section>
     @if(layout()!=='overview'){
       <ng-container [ngTemplateOutlet]="resultsSection" />
+    }
     }
   </div>
   <footer class="study-sources">
