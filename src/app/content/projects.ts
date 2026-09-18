@@ -7,7 +7,7 @@ export interface Project {
 
 export const projects: readonly Project[] = [
   {slug: 'pix', title: 'Instant Payment System',
-    description: 'Simulates transfers between banks, with safeguards against paying twice and a way to recover missing confirmations.',
+    description: 'I designed and tested a payment system to understand how it could stay fast and correct under sustained demand.',
     destination: {kind: 'case-study', route: '/projects/pix'}},
   {slug: 'kafka-chat', title: 'Kafka Chatrooms CLI',
     description: 'Public chat rooms where people exchange messages directly from the terminal.',

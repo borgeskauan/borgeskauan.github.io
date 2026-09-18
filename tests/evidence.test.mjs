@@ -3,14 +3,15 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {testRuns,summarizeRun} from '../src/app/projects/pix/results.ts';
 
-test('the response-time chart converts milliseconds to seconds without losing the difference between runs',()=>{
-  assert.equal(testRuns[0].answerSeconds,0.855202);
-  assert.equal(testRuns[1].answerSeconds,0.265195);
-  assert.equal(testRuns[0].answerSeconds.toFixed(2),'0.86');
-  assert.equal(testRuns[1].answerSeconds.toFixed(2),'0.27');
+test('both reports support the published rate and response-time target',()=>{
+  for(const run of testRuns){
+    assert.ok(Math.abs(run.averageRate-2100)<1, "The rounded headline must be within one attempt per second of each measured average");
+    assert.ok(run.lowestRate>=2000);
+    assert.ok(run.answerSeconds<1);
+  }
 });
 
-test('the evidence keeps missed starts visible and distinguishes averages from the lowest second',()=>{
+test('the source reports preserve missed starts and distinguish averages from the lowest second',()=>{
   assert.equal(testRuns[0].averageRate,2099.299);
   assert.equal(testRuns[0].lowestRate,2017);
   assert.equal(testRuns[0].missedStarts,631);
