@@ -27,7 +27,7 @@
   "Source code": "Código-fonte",
   "A payment system built and tested by Kauan Borges: sustained demand, response times, and the evidence from two local tests.": "Um sistema de pagamentos desenvolvido e testado por Kauan Borges: demanda contínua, tempos de resposta e evidências de dois testes locais.",
   "The challenge": "O desafio",
-  "Finding what needed to change": "Identificando o que precisava mudar",
+  "The process": "O processo",
   "Local tests on one computer, using simulated banks.": "Testes locais em um único computador, com bancos simulados.",
   "I designed and tested a payment system to understand how it could stay fast and correct under sustained demand.": "Projetei e testei um sistema de pagamentos para entender como ele poderia se manter rápido e correto sob demanda contínua.",
   "I was responsible for the design, development and testing": "Fui responsável pelo projeto, pelo desenvolvimento e pelos testes",
