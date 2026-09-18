@@ -1,68 +1,12 @@
-<article class="study" [class.study--results-beside]="layout()==='results'" [class.study--overview]="layout()==='overview'" [class.study--sequence]="layout()==='sequence'" [attr.data-layout]="layout()">
-  <div class="study-toolbar">
-    <a class="study-back" routerLink="/"><span aria-hidden="true">←</span> {{"All projects" | t}}</a>
-    <div class="study-layout-switch">
-      <label for="study-layout">{{"Compare layouts" | t}}</label>
-      <select id="study-layout" #layoutSelect [value]="layout()" (change)="selectLayout(layoutSelect.value)">
-        <option value="editorial">{{"Editorial" | t}}</option>
-        <option value="results">{{"Results beside the story" | t}}</option>
-        <option value="overview">{{"Overview, then the story" | t}}</option>
-        <option value="sequence">{{"Goal, decisions, outcome" | t}}</option>
-      </select>
-    </div>
-  </div>
+<article class="study">
+  <a class="study-back" routerLink="/"><span aria-hidden="true">←</span> {{"All projects" | t}}</a>
   <header class="study-introduction">
     <p class="study-label">{{"Independent project" | t}}</p>
     <h1>Instant Payment System</h1>
     <p class="study-purpose">{{"I built a system to move money between simulated banks. I wanted to understand what it would take to keep payments fast and correct as demand increased." | t}}</p>
     <p class="study-ownership"><strong>{{"I was responsible for the design, development and testing" | t}}</strong>{{", including the tools used to evaluate it." | t}}</p>
   </header>
-  <ng-template #resultFigures>
-        <div class="study-figures">
-          <p class="study-figure"><span class="study-qualifier">{{"Around" | t}}</span><strong>{{"2,100" | localNumber}}</strong><span class="study-result-caption">{{"payment attempts per second" | t}}</span><span class="study-result-target">{{"Target: at least 2,000" | t}}</span></p>
-          <p class="study-figure"><strong>99%</strong><span class="study-result-caption">{{"of final answers within one second" | t}}</span><span class="study-result-target">{{"Met in both tests" | t}}</span></p>
-        </div>
-  </ng-template>
-  <ng-template #resultsSection>
-    <section class="study-section study-results" aria-labelledby="results-title">
-      <h2 id="results-title">{{"Both tests met the target" | t}}</h2>
-      <div class="study-section-body">
-        <p>{{"The final system completed two separate 15-minute tests." | t}}</p>
-        <ng-container [ngTemplateOutlet]="resultFigures" />
-        <p>{{"The checks reported no missing or conflicting answers, or errors in handling repeated payment instructions." | t}}</p>
-        <p class="study-scope">{{"Both tests used the same code and settings. All services and testing tools ran on one computer." | t}}</p>
-      </div>
-    </section>
-  </ng-template>
-  <div class="study-comparison">
-    @if(layout()==='sequence'){
-      <ol class="study-sequence" role="list">
-        <li>
-          <span class="study-step-number" aria-hidden="true">1</span>
-          <h2>{{"Set the goal" | t}}</h2>
-          <p>{{"Keep payments fast and correct under sustained demand." | t}}</p>
-        </li>
-        <li>
-          <span class="study-step-number" aria-hidden="true">2</span>
-          <h2>{{"Decide what to change" | t}}</h2>
-          <p>{{"Investigate delays and keep changes that improve the complete payment." | t}}</p>
-        </li>
-        <li>
-          <span class="study-step-number" aria-hidden="true">3</span>
-          <h2>{{"Check the result" | t}}</h2>
-          <p>{{"Both local tests met the target." | t}}</p>
-        </li>
-      </ol>
-      <p class="study-sequence-decision">{{"Some changes made individual parts faster without helping the payment as a whole. I measured the complete journey, through to the bank receiving its final answer, to decide which changes to keep." | t}}</p>
-      <div class="study-sequence-evidence">
-        <ng-container [ngTemplateOutlet]="resultFigures" />
-        <p class="study-sequence-checks">{{"The checks reported no missing or conflicting answers, or errors in handling repeated payment instructions." | t}}</p>
-        <p class="study-scope">{{"Both tests lasted 15 minutes and used the same code and settings. All services and testing tools ran on one computer." | t}}</p>
-      </div>
-    }@else{
-    @if(layout()==='overview'){
-      <ng-container [ngTemplateOutlet]="resultsSection" />
-    }
+  <div class="study-body">
     <section class="study-section" aria-labelledby="target-title">
       <h2 id="target-title">{{"Setting the target" | t}}</h2>
       <div class="study-section-body">
@@ -77,10 +21,18 @@
         <p>{{"I also found that making one part faster didn’t necessarily improve the complete payment. I measured the complete journey, through to the final answer reaching the bank." | t}} <strong>{{"That helped me decide which changes to keep." | t}}</strong></p>
       </div>
     </section>
-    @if(layout()!=='overview'){
-      <ng-container [ngTemplateOutlet]="resultsSection" />
-    }
-    }
+    <section class="study-section study-results" aria-labelledby="results-title">
+      <h2 id="results-title">{{"Both tests met the target" | t}}</h2>
+      <div class="study-section-body">
+        <p>{{"The final system completed two separate 15-minute tests." | t}}</p>
+        <div class="study-figures">
+          <p class="study-figure"><span class="study-qualifier">{{"Around" | t}}</span><strong>{{"2,100" | localNumber}}</strong><span class="study-result-caption">{{"payment attempts per second" | t}}</span><span class="study-result-target">{{"Target: at least 2,000" | t}}</span></p>
+          <p class="study-figure"><strong>99%</strong><span class="study-result-caption">{{"of final answers within one second" | t}}</span><span class="study-result-target">{{"Met in both tests" | t}}</span></p>
+        </div>
+        <p>{{"The checks reported no missing or conflicting answers, or errors in handling repeated payment instructions." | t}}</p>
+        <p class="study-scope">{{"Both tests used the same code and settings. All services and testing tools ran on one computer." | t}}</p>
+      </div>
+    </section>
   </div>
   <footer class="study-sources">
     <a href="https://github.com/borgeskauan/instant-payment-system" target="_blank" rel="noopener noreferrer">{{"Source code" | t}} <span aria-hidden="true">↗</span></a>

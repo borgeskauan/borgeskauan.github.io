@@ -73,18 +73,5 @@
   "Both tests met the target": "Os dois testes atingiram a meta",
   "The final system completed two separate 15-minute tests.": "O sistema final passou por dois testes separados de 15 minutos.",
   "Target: at least 2,000": "Meta: pelo menos 2.000",
-  "Met in both tests": "Atingida nos dois testes",
-  "Compare layouts": "Comparar layouts",
-  "Editorial": "Editorial",
-  "Results beside the story": "Resultados ao lado do texto",
-  "Overview, then the story": "Visão geral, depois o texto",
-  "Goal, decisions, outcome": "Meta, decisões, resultado",
-  "Set the goal": "Definir a meta",
-  "Keep payments fast and correct under sustained demand.": "Manter os pagamentos rápidos e corretos sob demanda contínua.",
-  "Decide what to change": "Decidir o que mudar",
-  "Investigate delays and keep changes that improve the complete payment.": "Investigar os atrasos e manter as mudanças que melhoram o pagamento como um todo.",
-  "Check the result": "Conferir o resultado",
-  "Both local tests met the target.": "Os dois testes locais atingiram a meta.",
-  "Some changes made individual parts faster without helping the payment as a whole. I measured the complete journey, through to the bank receiving its final answer, to decide which changes to keep.": "Algumas mudanças tornavam partes isoladas mais rápidas sem melhorar o pagamento como um todo. Medi o percurso completo, até o banco receber a resposta final, para decidir quais mudanças manter.",
-  "Both tests lasted 15 minutes and used the same code and settings. All services and testing tools ran on one computer.": "Os dois testes duraram 15 minutos e usaram o mesmo código e as mesmas configurações. Todos os serviços e ferramentas de teste rodaram em um único computador."
+  "Met in both tests": "Atingida nos dois testes"
 }
