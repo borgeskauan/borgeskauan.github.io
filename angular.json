@@ -18,7 +18,7 @@
             "index": "src/index.html",
             "tsConfig": "tsconfig.app.json",
             "assets": [{"glob": "**/*", "input": "public", "output": "/"}],
-            "styles": ["src/styles.css"],
+            "styles": ["src/styles.css", "src/home.css"],
             "outputHashing": "all",
             "budgets": [{"type": "initial", "maximumWarning": "500kB", "maximumError": "750kB"}]
           }

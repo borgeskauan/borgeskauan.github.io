@@ -18,7 +18,7 @@ test('language follows the current pages and their compatibility URLs',()=>{
   for(const path of ['/versions/320','/versions/31','/versions','/unavailable'])assert.equal(isLocalizedPath(path),false);
 });
 test('static translated template text has a complete dictionary',()=>{
-  const files=['layout/top-bar.component.ts','layout/build-version.component.ts','layout/portfolio-shell.component.ts','home/home.component.ts','home/project-media.component.ts','projects/pix/payment-study.component.html'];
+  const files=['layout/top-bar.component.ts','layout/portfolio-shell.component.ts','home/home.component.ts','home/project-media.component.ts','projects/pix/payment-study.component.html'];
   for(const file of files){
     const source=fs.readFileSync(new URL('../src/app/'+file,import.meta.url),'utf8');
     for(const m of source.matchAll(/{{["']([^"'\n]+)["'] \| t}}/g))assert.ok(pt[m[1]],'Missing: '+m[1]);

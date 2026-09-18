@@ -1,4 +1,3 @@
-@font-face{font-family:'Manrope';font-style:normal;font-weight:200 800;font-display:swap;src:url('/assets/fonts/manrope/Manrope-Variable.ttf') format('truetype')}
 :host{display:block}
 .study{--study-line:#293544;max-width:70rem;margin-inline:auto;padding-bottom:1rem;font-family:'Manrope',Arial,sans-serif}
 .study .study-back{display:inline-flex;gap:.75rem;align-items:center;min-height:44px;font-size:.9375rem;text-decoration:none;color:var(--muted)}

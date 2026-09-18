@@ -22,7 +22,7 @@ import {ProjectMediaComponent} from './project-media.component';
           <div class="identity-project-copy">
             <h3 [id]="'project-' + project.slug">{{(project.title) | t}}</h3>
             <p>{{project.description | t}}</p>
-            @if(project.destination.kind === 'case-study'){<a class="identity-project-link" [routerLink]="projectUrl(project)">{{"Project notes" | t}}</a>}@else{<a class="identity-project-link" [href]="projectUrl(project)" target="_blank" rel="noopener noreferrer">{{"Repository" | t}}</a>}
+            @if(project.destination.kind === 'case-study'){<a class="identity-project-link" [routerLink]="projectUrl(project)"><span>{{"Project notes" | t}}</span><span aria-hidden="true">→</span></a>}@else{<a class="identity-project-link" [href]="projectUrl(project)" target="_blank" rel="noopener noreferrer"><span>{{"Repository" | t}}</span><span aria-hidden="true">↗</span></a>}
           </div>
         </div>
       </article>

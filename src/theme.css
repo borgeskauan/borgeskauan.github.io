@@ -2,19 +2,13 @@
   color-scheme:dark;
   --paper:#0b111b; --panel:#141f2e; --surface:#1d2c40;
   --ink:#f0f2f5; --muted:#bbc3ce; --dim:#a7b2c1;
-  --accent:#98bcec; --line:#344357; --warning:#f0d4b2;
-  --bg:var(--paper); --text:var(--ink);
+  --accent:#98bcec; --line:#344357;
   --font-body:'Atkinson Hyperlegible',Verdana,sans-serif;
-  --font-mono:'SFMono-Regular',Consolas,monospace;
-  --type-small:.875rem; --type-label:1rem; --type-body:1.1875rem;
-  --type-title:clamp(2.5rem,5vw,4rem);
-  --type-section:clamp(2rem,3.5vw,2.8rem);
-  --type-subheading:clamp(1.75rem,2.2vw,2.2rem);
-  --leading-body:1.7; --leading-heading:1.25;
-  --page-width:1280px; --reading-width:52rem; --page-gutter:2.5rem;
-  --space-1:.25rem; --space-2:.5rem; --space-3:.75rem; --space-4:1rem;
-  --space-6:1.5rem; --space-8:2rem; --space-12:3rem;
-  --radius-control:8px; --radius-panel:20px;
+  --type-small:.875rem; --type-body:1.1875rem;
+  --leading-body:1.7;
+  --page-width:1280px; --page-gutter:2.5rem;
+  --space-1:.25rem; --space-3:.75rem; --space-8:2rem; --space-12:3rem;
+  --radius-control:8px;
   font-family:var(--font-body);font-size:100%;background:var(--paper);color:var(--ink);
 }
-@media(max-width:42rem){:root{--page-gutter:1rem;--type-body:1.125rem;--type-title:clamp(1.75rem,6vw,2.5rem);--type-section:2rem;--type-subheading:1.75rem}}
+@media(max-width:42rem){:root{--page-gutter:1rem;--type-body:1.125rem;}}

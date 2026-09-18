@@ -1,0 +1,83 @@
+/* Homepage composition. Scoped so project notes retain their own layout. */
+.portfolio-home{--font-body:'Manrope',Arial,sans-serif;--page-width:1120px;--home-line:#293544;font-family:var(--font-body)}
+.portfolio-home .identity-profile{display:grid;min-width:0;width:min(var(--page-width),calc(100% - 2 * var(--page-gutter)));margin:auto;grid-template-columns:minmax(0,1fr) 216px;grid-template-areas:'intro photo' 'bio photo';gap:1.5rem 4rem;padding:4rem 0 3.5rem;align-items:center}
+.portfolio-home .identity-introduction{grid-area:intro;align-self:end}
+.portfolio-home .identity-introduction h1{font-size:clamp(3rem,6.5vw,5.25rem);font-weight:550;letter-spacing:-.06em;line-height:1.08}
+.portfolio-home .identity-role{font-size:1.5rem;line-height:1.4;font-weight:450;letter-spacing:-.025em;margin-top:1rem;color:var(--ink)}
+.portfolio-home .identity-bio{grid-area:bio;font-size:1.125rem;line-height:1.75;max-width:43ch;margin:0;align-self:start;text-wrap:pretty}
+.portfolio-home .identity-photo{grid-area:photo;justify-self:end;width:216px;max-width:none;height:240px;border-radius:6px;overflow:hidden;border:1px solid var(--home-line)}
+.portfolio-home .identity-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 55%;border-radius:inherit}
+.portfolio-home .identity-content{padding:1rem max(var(--page-gutter),calc((100% - var(--page-width))/2)) 4rem}
+.portfolio-home .identity-section-title{display:flex;align-items:center;gap:1.5rem;margin-bottom:2rem;padding:0}
+.portfolio-home .identity-section-title::after{content:'';height:1px;flex:1;background:var(--home-line)}
+.portfolio-home .identity-section-title h2{font-size:1.25rem;font-weight:600;line-height:1.4;letter-spacing:-.025em}
+
+/* The main case study leads; the two smaller projects share the next row. */
+.portfolio-home .identity-project-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3.5rem 2.5rem}
+.portfolio-home .identity-project{min-width:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+.portfolio-home .identity-project-inner{display:flex;flex-direction:column;align-items:stretch;gap:1.5rem}
+.portfolio-home .identity-project-media{width:100%;aspect-ratio:16/9;min-width:0;overflow:hidden;border-radius:6px;background:#142235}
+.portfolio-home .identity-project-media>a{display:block;width:100%;height:100%;text-decoration:none}
+.portfolio-home .identity-project-media app-project-media,
+.portfolio-home .identity-project-media .s-media{display:block;height:100%;min-height:0;border-radius:inherit}
+.portfolio-home .identity-project-media img{display:block;width:100%;height:100%;object-fit:contain}
+.portfolio-home .identity-project-copy{min-width:0}
+.portfolio-home .identity-project-media>a:focus-visible{outline-offset:-4px}
+.portfolio-home .identity-project-copy h3{font-size:1.625rem;font-weight:600;line-height:1.25;letter-spacing:-.035em;margin-bottom:.875rem}
+.portfolio-home .identity-project-copy>p{font-size:1.0625rem;line-height:1.75;max-width:44ch;text-wrap:pretty}
+.portfolio-home .identity-project-link{display:inline-flex;align-items:center;gap:1rem;min-height:48px;margin-top:1.125rem;font-size:1rem;line-height:1.5;color:var(--ink);text-decoration:none}
+.portfolio-home .identity-project-link>[aria-hidden]{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:36px;height:36px;border:1px solid #40536a;border-radius:50%;color:var(--accent)}
+.portfolio-home .identity-project-link:hover{color:var(--accent)}
+.portfolio-home .identity-project-link:hover>[aria-hidden]{background:#23374e;border-color:var(--accent)}
+.portfolio-home .identity-project-link:focus-visible{outline:2px solid var(--accent);outline-offset:5px;border-radius:2px}
+
+.portfolio-home .identity-project:first-child{grid-column:1/-1;background:#182536;padding:2rem;border-radius:6px}
+.portfolio-home .identity-project:first-child .identity-project-inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:2.75rem;align-items:center}
+.portfolio-home .identity-project:first-child .identity-project-media{aspect-ratio:1.44;border-radius:4px}
+.portfolio-home .identity-project:first-child .identity-project-copy h3{font-size:clamp(1.875rem,3vw,2.5rem);font-weight:550;line-height:1.15;letter-spacing:-.04em}
+.portfolio-home .identity-project:first-child .identity-project-copy>p{font-size:1.125rem;max-width:32ch}
+.portfolio-home .identity-project:first-child .identity-project-link{margin-top:1.5rem}
+
+/* Preserve the chat illustration while giving its labels a readable frame. */
+.portfolio-home .identity-project-media.identity-chat-media{container-type:inline-size;aspect-ratio:auto}
+.portfolio-home .identity-chat-media .p-chat-diagram{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1.2fr) auto minmax(0,1fr);align-items:center;justify-items:stretch;gap:.625rem;width:100%;height:auto;min-height:max(12rem,56.25cqw);padding:1.5rem;background:#142235;font-size:.9375rem;line-height:1.5;text-align:center}
+.portfolio-home .identity-chat-media .p-chat-diagram strong{padding:.875rem .5rem;border:1px solid #40536a;border-radius:999px;background:#203148;font-weight:550}
+.portfolio-home .identity-chat-media .p-chat-diagram [aria-hidden]{transform:none;line-height:1;color:var(--accent)}
+
+@media(max-width:60rem){
+  .portfolio-home .identity-profile{grid-template-columns:minmax(0,1fr) 176px;gap:1.5rem 2.5rem;padding-block:3rem}
+  .portfolio-home .identity-photo{width:176px;height:200px}
+  .portfolio-home .identity-project:first-child{padding:1.5rem}
+  .portfolio-home .identity-project:first-child .identity-project-inner{gap:1.75rem}
+  .portfolio-home .identity-chat-media .p-chat-diagram{padding:1rem;gap:.375rem}
+}
+@media(max-width:48rem){
+  .portfolio-home .identity-project-list{grid-template-columns:1fr;gap:2.75rem}
+  .portfolio-home .identity-project:first-child .identity-project-inner{display:flex;gap:1.75rem}
+  .portfolio-home .identity-project:not(:first-child){padding-top:2rem;border-top:1px solid var(--home-line)}
+  .portfolio-home .identity-project-copy>p{max-width:none}
+  .portfolio-home .identity-project:first-child .identity-project-copy>p{max-width:none}
+}
+@media(max-width:42rem){
+  .portfolio-home .identity-profile{grid-template-columns:minmax(0,1fr) 80px;grid-template-areas:'intro photo' 'bio bio';padding:2.5rem 0 2.75rem;gap:1.5rem 1rem}
+  .portfolio-home .identity-introduction{align-self:center}
+  .portfolio-home .identity-introduction h1{font-size:clamp(1.875rem,8vw,2.5rem);letter-spacing:-.045em}
+  .portfolio-home .identity-role{font-size:1.0625rem;margin-top:.625rem}
+  .portfolio-home .identity-photo{width:80px;height:96px;border-radius:4px}
+  .portfolio-home .identity-bio{font-size:1.0625rem;line-height:1.75;max-width:none}
+  .portfolio-home .identity-content{padding-top:0;padding-bottom:3rem}
+  .portfolio-home .identity-section-title{margin-bottom:1.5rem}
+  .portfolio-home .identity-project:first-child{padding:1.25rem}
+  .portfolio-home .identity-project:first-child .identity-project-copy h3{font-size:1.875rem}
+  .portfolio-home .identity-project:first-child .identity-project-copy>p{font-size:1.0625rem}
+  .portfolio-home .identity-chat-media .p-chat-diagram{padding:1.25rem}
+}
+@container(max-width:20rem){
+  .portfolio-home .identity-chat-media .p-chat-diagram{grid-template-columns:1fr;justify-items:center;gap:.375rem;padding:1.25rem}
+  .portfolio-home .identity-chat-media .p-chat-diagram strong{padding:.625rem 1.25rem}
+  .portfolio-home .identity-chat-media .p-chat-diagram [aria-hidden]{transform:rotate(90deg)}
+}
+@media(prefers-reduced-motion:no-preference){
+  .portfolio-home .identity-project-link{transition:color .18s ease}
+  .portfolio-home .identity-project-link>[aria-hidden]{transition:background-color .18s ease,border-color .18s ease}
+}

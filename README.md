@@ -11,7 +11,7 @@ The former `/versions/32` URLs redirect to these pages. There are no historical 
 
 ## Development
 
-`npm start` runs the development server. `npm run build` generates the static site in `build/`. `npm run verify` checks build metadata, translations, evidence, and generated pages.
+`npm start` runs the development server. `npm run build` generates the static site in `build/`. `npm run verify` checks translations, evidence, generated pages, and the absence of the removed debug interface.
 
 Project media and original test reports are in `public/`. Both pages share `layout/top-bar.component.ts` and the palette, typography, width, and spacing tokens in `src/theme.css`. Route-specific content remains independent.
 
@@ -19,4 +19,8 @@ Project media and original test reports are in `public/`. Both pages share `layo
 
 Pushes to `main` run `.github/workflows/pages.yml`, which builds the site, runs `npm run verify`, and deploys `build/` to GitHub Pages. The workflow can also be started manually from GitHub Actions. The repository's Pages publishing source must be set to **GitHub Actions**.
 
-The **Version** toggle at the bottom of both pages shows the loaded build's short commit ID and build time in UTC. `npm run build` and `npm start` generate this metadata automatically; local builds with tracked, uncommitted changes add `-local`. The ID is embedded in the application, so an older open tab continues to identify its own build until reloaded.
+Deployment status and the published commit are available in GitHub Actions. The site has no visitor-facing version control.
+
+## Styles
+
+`src/styles.css` contains the shared foundation and fonts; `src/home.css` contains the homepage layout. The Pix page owns its styles in `src/app/projects/pix/payment-study.component.css`. Old design variants and their style layers have been removed.
