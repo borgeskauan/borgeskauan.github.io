@@ -3,7 +3,7 @@ import {readFile,readdir,stat} from 'node:fs/promises';
 import {join} from 'node:path';
 const root='build';
 const buildInfo=JSON.parse(await readFile('src/app/generated/build-info.json','utf8'));
-for(const [route,expected] of [['',['Kauan Borges','Software developer','Projects','Instant Payment System','Movie discovery']],['projects/pix',['The challenge','Finding what needed to change','Both tests met the target','Target: at least 2,000','2,100','99%','Test reports']]]){
+for(const [route,expected] of [['',['Kauan Borges','Software developer','Projects','Instant Payment System','Movie discovery']],['projects/pix',['The challenge','Finding what needed to change','The results','Payments per second','under a second.','Inspired by where Pix started.','2,100','99%','How I built and tested it','Source code']]]){
  const html=await readFile(join(root,route,'index.html'),'utf8');
  for(const text of expected)assert.ok(html.includes(text),`${route}: ${text}`);
  assert.ok(html.includes('app-build-version') && html.includes(buildInfo.commit.slice(0,7)),`${route}: loaded build version`);

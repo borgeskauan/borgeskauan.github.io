@@ -2,7 +2,7 @@
   <a class="study-back" routerLink="/"><span aria-hidden="true">←</span> {{"All projects" | t}}</a>
   <header class="study-introduction">
     <h1>Instant Payment System</h1>
-    <p class="study-purpose">{{"I built a system to move money between simulated banks. The challenge was keeping payments fast and correct when thousands arrived every second." | t}}</p>
+    <p class="study-purpose">{{"I built a system to move money between simulated banks." | t}}</p>
     <p class="study-ownership"><strong>{{"I was responsible for the design, development and testing" | t}}</strong>{{", including the tools used to evaluate it." | t}}</p>
   </header>
   <div class="study-body">
@@ -19,21 +19,27 @@
         <p>{{"Some changes made individual parts faster without improving the payment as a whole." | t}} <strong>{{"I measured the complete journey to decide which changes to keep." | t}}</strong></p>
       </div>
     </section>
-    <section class="study-section study-results" aria-labelledby="results-title">
-      <h2 id="results-title">{{"Both tests met the target" | t}}</h2>
+    <section #results class="study-section study-results" aria-labelledby="results-title">
+      <h2 id="results-title">{{"The results" | t}}</h2>
       <div class="study-section-body">
-        <p>{{"Two separate tests, each lasting 15 minutes." | t}}</p>
-        <div class="study-figures">
-          <p class="study-figure"><span class="study-qualifier">{{"Around" | t}}</span><strong>{{"2,100" | localNumber}}</strong><span class="study-result-caption">{{"payment attempts per second" | t}}</span><span class="study-result-target">{{"Target: at least 2,000" | t}}</span></p>
-          <p class="study-figure"><strong>99%</strong><span class="study-result-caption">{{"of final answers reached the bank within one second" | t}}</span></p>
+        <div class="study-results-blocks">
+          <div class="study-result-block">
+            <p class="study-result-value"><strong><span class="study-approximation">≈</span>{{"2,100" | localNumber}}</strong> <span>{{"Payments per second" | t}}</span></p>
+          </div>
+          <div class="study-result-block">
+            <p class="study-result-value"><strong>99%</strong> <span>{{"under a second." | t}}</span></p>
+          </div>
         </div>
-        <p class="study-scope">{{"These were local tests on one computer, using simulated banks." | t}}</p>
+        <div class="study-test-context">
+          <p class="study-duration">{{"Sustained across two 15-minute tests." | t}}</p>
+          <p class="study-scope">{{"Local tests on one computer, using simulated banks." | t}}</p>
+        </div>
+        <p class="study-result-reference">{{"Inspired by where Pix started." | t}}</p>
       </div>
     </section>
   </div>
   <footer class="study-sources">
-    <a href="https://github.com/borgeskauan/instant-payment-system" target="_blank" rel="noopener noreferrer">{{"Source code" | t}} <span aria-hidden="true">↗</span></a>
-    <a href="https://github.com/borgeskauan/instant-payment-system/blob/master/docs/engineering-evolution.md" target="_blank" rel="noopener noreferrer">{{"Development history" | t}} <span aria-hidden="true">↗</span></a>
-    <a href="https://github.com/borgeskauan/instant-payment-system/blob/master/docs/performance.md" target="_blank" rel="noopener noreferrer">{{"Test reports" | t}} <span aria-hidden="true">↗</span></a>
+    <a class="study-reading" href="https://github.com/borgeskauan/instant-payment-system/blob/master/docs/engineering-evolution.md" target="_blank" rel="noopener noreferrer"><span class="study-source-label">{{"How I built and tested it" | t}}</span> <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/borgeskauan/instant-payment-system" target="_blank" rel="noopener noreferrer"><span class="study-source-label">{{"Source code" | t}}</span> <span aria-hidden="true">↗</span></a>
   </footer>
 </article>
