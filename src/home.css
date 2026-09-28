@@ -8,6 +8,7 @@
 .portfolio-home .identity-photo{grid-area:photo;justify-self:end;width:216px;max-width:none;height:240px;border-radius:6px;overflow:hidden;border:1px solid var(--home-line)}
 .portfolio-home .identity-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 55%;border-radius:inherit}
 .portfolio-home .identity-content{padding:1rem max(var(--page-gutter),calc((100% - var(--page-width))/2)) 4rem}
+.portfolio-home .identity-positioning{max-width:52ch;margin:0 0 2.5rem;color:var(--ink);font-size:clamp(1.375rem,2.5vw,1.875rem);font-weight:500;line-height:1.4;letter-spacing:-.025em;text-wrap:pretty}
 .portfolio-home .identity-section-title{display:flex;align-items:center;gap:1.5rem;margin-bottom:2rem;padding:0}
 .portfolio-home .identity-section-title::after{content:'';height:1px;flex:1;background:var(--home-line)}
 .portfolio-home .identity-section-title h2{font-size:1.25rem;font-weight:600;line-height:1.4;letter-spacing:-.025em}
