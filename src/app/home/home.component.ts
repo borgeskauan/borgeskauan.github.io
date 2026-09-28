@@ -9,6 +9,7 @@ import {projectUrl} from '../content/navigation';
 import {ProjectMediaComponent} from './project-media.component';
 
 @Component({selector:'app-home',imports:[TranslatePipe,NgTemplateOutlet,RouterLink,ProjectMediaComponent],template:`
+<p class="identity-positioning">{{'I design and test backend systems for correctness and performance under sustained demand.' | t}}</p>
 <section class="identity-projects" aria-labelledby="selected-projects">
   <header class="identity-section-title"><h2 id="selected-projects">{{'Projects' | t}}</h2></header>
   <div class="identity-project-list">
